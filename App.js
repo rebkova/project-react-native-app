@@ -16,8 +16,8 @@ const Title = styled.Text`
 const App = () => {
   return (
     <Container>
-      <Title>This is your cool app!</Title>
-      <Title>Go to App.js and start coding</Title>
+      <Title>This is your cool app! Yes it is, I'm happy to see it in browser.</Title>
+      <Title>Go to App.js and start coding. I will. Just need to see if this updates.</Title>
       <Title>💅💅💅</Title>
     </Container>
   )
