@@ -1,24 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Text } from "react-native"
 import styled from 'styled-components/native'
+import DrinkList from './components/DrinkList'
+
+import CardView from "./components/DrinkList"
 
 const Container = styled.View`
-  flex: 1;
+  flex: 0.125;
   background-color: papayawhip;
   justify-content: center;
   align-items: center;
 `
 
-const Title = styled.Text`
+const AppTitle = styled.Text`
   font-size: 24px;
   color: palevioletred;
 `
 
 const App = () => {
+
+  const [drink, setDrink] = useState([]);
+
+  useEffect(() => {
+    fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin")
+      .then(response => response.json())
+      // .then(data => console.log(data.drinks))
+      .then(data => setDrink(data.drinks))
+
+  }, [])
+
   return (
     <Container>
-      <Title>This is your cool app! Yes it is, I'm happy to see it in browser.</Title>
-      <Title>Go to App.js and start coding. I will. Just need to see if this updates.</Title>
-      <Title>💅💅💅</Title>
+      <AppTitle>The Ginious' List</AppTitle>
+      {drink.map(cocktail => (
+        <DrinkList
+          key={cocktail.idDrink}
+          {...cocktail}
+        />
+      ))}
+      <CardView>
+        <Text>
+          Hello, some text in text component.
+        </Text>
+      </CardView>
     </Container>
   )
 }
