@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text } from "react-native"
+import { View, Text, Image } from "react-native"
 import styled from 'styled-components/native'
 
 //styled components
@@ -14,19 +14,24 @@ export const CardView = styled.View`
   }
 `
 
-const DrinkList = ({ strDrink }) => {
-
-  // [drink, setDrink] = useState([]);
-
-  // fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin")
-  //   .then(response => response.json())
-  //   .then(data => console.log(data.drinks))
+const DrinkList = ({ strDrink, strDrinkThumb }) => {
 
   return (
     <View>
-      <Text>{strDrink}</Text>
+      <Text>{strDrink} </Text>
+      {/* <Text>{strDrinkThumb}</Text> */}
 
-    </View>
+      <Image
+        source={{ uri: `${strDrinkThumb}` }}
+        style={{
+          width: 300,
+          height: 300,
+          padding: 10,
+          border: solid "blue",
+        }}
+      />
+
+    </View >
   )
 }
 
