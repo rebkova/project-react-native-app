@@ -1,13 +1,20 @@
 # Project React Native App 📱
 
-Replace this readme with your own information about your project.
+A React Native mobile application with cocktail recipes. 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+## :brain: Learning objectives
+- how to use React Native to create a mobile app
+- practice using Styled Components
+- how to read & use documentation
 
-## The problem
+## :heavy_check_mark: Features
+- fetching & displaying cocktail drinks and images from TheCocktailDB API
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+## :chart_with_upwards_trend: Future improvements
 
-## View it live
+ 
+## :robot: Tech used 
+- React Native
+- Expo.io
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+## :eyes: View it live

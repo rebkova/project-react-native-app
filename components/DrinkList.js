@@ -1,37 +1,35 @@
-import React, { useState } from 'react'
-import { View, Text, Image } from "react-native"
+import React from 'react'
 import styled from 'styled-components/native'
 
 //styled components
-export const CardView = styled.View`
-  background-color: blue;
-  border: 1px solid green;
-  width: 100px;
-  height: 300px;
 
-  &:hover {
-    background-color: red;
-  }
+export const DrinkCardView = styled.View`
+  border: 1px solid blue;
+  margin-bottom: 25px;
 `
+
+export const DrinkImage = styled.Image`
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 1px solid black
+`
+
+export const DrinkNameText = styled.Text`
+  margin: 10px 0;
+  color: orange;
+  font-size: 16px
+`
+
+//add TouchableHighlight -> on press go to the details page?
 
 const DrinkList = ({ strDrink, strDrinkThumb }) => {
 
   return (
-    <View>
-      <Text>{strDrink} </Text>
-      {/* <Text>{strDrinkThumb}</Text> */}
-
-      <Image
-        source={{ uri: `${strDrinkThumb}` }}
-        style={{
-          width: 300,
-          height: 300,
-          padding: 10,
-          border: solid "blue",
-        }}
-      />
-
-    </View >
+    <DrinkCardView>
+      <DrinkImage source={{ uri: `${strDrinkThumb} ` }} />
+      <DrinkNameText>{strDrink}</DrinkNameText>
+    </DrinkCardView>
   )
 }
 
