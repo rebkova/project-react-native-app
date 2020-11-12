@@ -68,7 +68,6 @@ const App = () => {
         instructions={recipes.strInstructions}
       />
     </Container >
-
   )
 }
 

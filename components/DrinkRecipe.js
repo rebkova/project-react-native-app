@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import styled from 'styled-components/native'
 
@@ -14,12 +14,33 @@ const styles = StyleSheet.create({
 
 
 const DrinkRecipe = ({ instructions }) => {
+  //fetch recipe for every cocktail
+  const [recipes, setRecipes] = useState([])
+
+  useEffect(() => {
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=17242`)
+      .then(response => response.json())
+      // .then(data => console.log(data.drinks))
+      .then(data => setRecipes(data.drinks))
+  }, [])
+
+  //recipes =  array with one object in it
+  console.log({ recipes })
 
   return (
     <View>
-      <Text style={styles.text}>{instructions}</Text>
-      <Text style={styles.text}>Hello, app, do you have a plan to start working at some point?</Text>
-      <Text style={styles.text}>Asking for a friend ... Hello?</Text>
+      {
+        recipes.map(recipe => {
+
+          return (
+            <Text style={styles.text}>
+              {recipe.strInstructions}
+            </Text>
+          )
+
+        })
+      }
+      <Text style={styles.text}>Hello, second screen!</Text>
     </View>
   )
 }
