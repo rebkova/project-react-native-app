@@ -7,7 +7,7 @@ const DrinkList = ({ strDrink, strDrinkThumb }) => {
 
   return (
     <DrinkCardView>
-      <DrinkImage source={{ uri: `${strDrinkThumb} ` }} />
+      <DrinkImage source={{ uri: `${strDrinkThumb}` }} />
       <DrinkNameText>{strDrink}</DrinkNameText>
     </DrinkCardView>
   )
@@ -27,7 +27,7 @@ export const DrinkImage = styled.Image`
   position: relative;
   width: 300px;
   height: 300px;
-  border: 1px solid black
+  // border: 1px solid black
 `
 
 export const DrinkNameText = styled.Text`

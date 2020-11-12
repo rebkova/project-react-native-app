@@ -11,18 +11,6 @@ import DrinkList from './components/DrinkList'
 import DrinkRecipe from "./components/DrinkRecipe"
 
 
-const Container = styled.View`
-  background-color: papayawhip;
-  align-items: center;
-`
-
-const AppTitle = styled.Text`
-  flex: 0.125;
-  padding: 10px;
-  font-size: 24px;
-  color: palevioletred;
-`
-
 //provides a way for your app to transition between screens where each new screen 
 //is placed on top of a stack
 const Stack = createStackNavigator()
@@ -50,7 +38,6 @@ const App = () => {
       // .then(data => console.log(data.drinks))
       .then(data => setRecipes(data.drinks))
   }, [])
-  // console.log(recipes.strInstructions)
 
 
   return (
@@ -72,3 +59,19 @@ const App = () => {
 }
 
 export default App
+
+
+//STYLED components
+
+const Container = styled.View`
+  background-color: papayawhip;
+  align-items: center;
+  padding: 8px
+`
+
+const AppTitle = styled.Text`
+  padding: 10px;
+  font-size: 24px;
+  color: palevioletred;
+  background-color: yellow
+`
