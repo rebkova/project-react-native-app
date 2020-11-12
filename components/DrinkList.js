@@ -3,12 +3,12 @@ import styled from 'styled-components/native'
 
 //add TouchableHighlight -> on press go to the details page?
 
-const DrinkList = ({ strDrink, strDrinkThumb }) => {
+const DrinkList = ({ drinkName, drinkImg }) => {
 
   return (
     <DrinkCardView>
-      <DrinkImage source={{ uri: `${strDrinkThumb}` }} />
-      <DrinkNameText>{strDrink}</DrinkNameText>
+      <DrinkImage source={{ uri: `${drinkImg}` }} />
+      <DrinkNameText>{drinkName}</DrinkNameText>
     </DrinkCardView>
   )
 }
@@ -22,13 +22,11 @@ export const DrinkCardView = styled.View`
   border: 1px solid blue;
   margin-bottom: 25px;
 `
-
 export const DrinkImage = styled.Image`
   position: relative;
   width: 300px;
   height: 300px;
 `
-
 export const DrinkNameText = styled.Text`
   margin: 10px 0;
   color: orange;

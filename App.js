@@ -4,11 +4,12 @@ import { createStackNavigator } from "@react-navigation/stack"
 //above from the reactnative.dev 
 
 import React, { useEffect, useState } from 'react'
-import { ScrollView } from "react-native"
+import { ScrollView, Text } from "react-native"
 import styled from 'styled-components/native'
 
 import DrinkList from './components/DrinkList'
 import DrinkRecipe from "./components/DrinkRecipe"
+import { FlatList } from 'react-native-gesture-handler';
 
 
 //provides a way for your app to transition between screens where each new screen 
@@ -39,21 +40,37 @@ const App = () => {
       .then(data => setRecipes(data.drinks))
   }, [])
 
+  console.log(drink[0])
+
 
   return (
     < Container >
       <AppTitle>The Ginious' List</AppTitle>
-      <ScrollView>
-        {/* {drink.map(cocktail => (
+
+      {/* FLATLIST alternative */}
+
+      <FlatList
+        data={drink}
+        renderItem={({ item: cocktail }) => //<Text>{`Hello ${item.strDrink}`}</Text>
+          <DrinkList
+            drinkName={cocktail.strDrink}
+            drinkImg={cocktail.strDrinkThumb}
+          />}
+      />
+
+      {/* SCROLLVIEW alternative */}
+
+      {/* <ScrollView> */}
+      {/* {drink.map(cocktail => (
           <DrinkList
             key={cocktail.idDrink}
             {...cocktail}
           />
         ))} */}
-      </ScrollView>
-      <DrinkRecipe
+      {/* </ScrollView> */}
+      {/* <DrinkRecipe
         instructions={recipes.strInstructions}
-      />
+      /> */}
     </Container >
   )
 }
@@ -65,7 +82,7 @@ export default App
 
 const Container = styled.View`
   flex: 1;
-  background-color: papayawhip;
+  background-color: #E2E2E0;
   align-items: center;
   padding: 8px;
 `
