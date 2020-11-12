@@ -1,7 +1,22 @@
 import React from 'react'
 import styled from 'styled-components/native'
 
-//styled components
+//add TouchableHighlight -> on press go to the details page?
+
+const DrinkList = ({ strDrink, strDrinkThumb }) => {
+
+  return (
+    <DrinkCardView>
+      <DrinkImage source={{ uri: `${strDrinkThumb} ` }} />
+      <DrinkNameText>{strDrink}</DrinkNameText>
+    </DrinkCardView>
+  )
+}
+
+export default DrinkList
+
+
+//STYLED components
 
 export const DrinkCardView = styled.View`
   border: 1px solid blue;
@@ -20,17 +35,3 @@ export const DrinkNameText = styled.Text`
   color: orange;
   font-size: 16px
 `
-
-//add TouchableHighlight -> on press go to the details page?
-
-const DrinkList = ({ strDrink, strDrinkThumb }) => {
-
-  return (
-    <DrinkCardView>
-      <DrinkImage source={{ uri: `${strDrinkThumb} ` }} />
-      <DrinkNameText>{strDrink}</DrinkNameText>
-    </DrinkCardView>
-  )
-}
-
-export default DrinkList

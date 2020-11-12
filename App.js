@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import { NavigationContainer } from "@react-navigation/native"
+// import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 //above from the reactnative.dev 
 
@@ -17,7 +17,7 @@ const Container = styled.View`
 `
 
 const AppTitle = styled.Text`
-  // flex: 0.125;
+  flex: 0.125;
   padding: 10px;
   font-size: 24px;
   color: palevioletred;
@@ -28,7 +28,7 @@ const AppTitle = styled.Text`
 const Stack = createStackNavigator()
 
 const App = () => {
-
+  //fetch gin-based drink from already filtered API
   const [drink, setDrink] = useState([]);
 
   useEffect(() => {
@@ -38,34 +38,37 @@ const App = () => {
       .then(data => setDrink(data.drinks))
   }, [])
 
+
+  //fetch recipe for every cocktail
+  const [recipes, setRecipes] = useState([])
+
+  //replace id with ${idDrink}
+
+  useEffect(() => {
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=17242`)
+      .then(response => response.json())
+      // .then(data => console.log(data.drinks))
+      .then(data => setRecipes(data.drinks))
+  }, [])
+  // console.log(recipes.strInstructions)
+
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={AppTitle}
-          options={{ title: "Let's ginx it!" }}
-        />
-        <Stack.Screen
-          name="Cocktails"
-          component={DrinkList}
-          options={{ title: "List of cocktail" }}
-        />
+    < Container >
+      <AppTitle>The Ginious' List</AppTitle>
+      <ScrollView>
+        {/* {drink.map(cocktail => (
+          <DrinkList
+            key={cocktail.idDrink}
+            {...cocktail}
+          />
+        ))} */}
+      </ScrollView>
+      <DrinkRecipe
+        instructions={recipes.strInstructions}
+      />
+    </Container >
 
-
-        <Container>
-          {/* <AppTitle>The Ginious' List</AppTitle> */}
-          {/* <ScrollView>
-          {drink.map(cocktail => (
-            <DrinkList
-              key={cocktail.idDrink}
-              {...cocktail}
-            />
-          ))}
-        </ScrollView> */}
-        </Container>
-      </Stack.Navigator>
-    </NavigationContainer >
   )
 }
 
