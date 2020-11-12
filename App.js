@@ -64,14 +64,15 @@ export default App
 //STYLED components
 
 const Container = styled.View`
+  flex: 1;
   background-color: papayawhip;
   align-items: center;
-  padding: 8px
+  padding: 8px;
 `
 
 const AppTitle = styled.Text`
   padding: 10px;
   font-size: 24px;
   color: palevioletred;
-  background-color: yellow
+  // background-color: yellow
 `

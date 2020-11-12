@@ -49,24 +49,23 @@ const DrinkRecipe = () => {
                 <Text>{recipe.strMeasure4} {recipe.strIngredient4}</Text>
                 <Text>{recipe.strMeasure5} {recipe.strIngredient5}</Text>
                 <Text>{recipe.strMeasure6} {recipe.strIngredient6}</Text>
-                <Text>{recipe.strMeasure7} {recipe.strIngredient7}</Text>
+                {/* <Text>{recipe.strMeasure7} {recipe.strIngredient7}</Text>
                 <Text>{recipe.strMeasure8} {recipe.strIngredient8}</Text>
-                <Text>{recipe.strMeasure9} {recipe.strIngredient9}</Text>
-                <Text>{recipe.strMeasure10} {recipe.strIngredient10}</Text>
+                <Text>{recipe.strMeasure9} {recipe.strIngredient9}</Text> */}
+                {/* <Text>{recipe.strMeasure10} {recipe.strIngredient10}</Text>
                 <Text>{recipe.strMeasure11} {recipe.strIngredient11}</Text>
                 <Text>{recipe.strMeasure12} {recipe.strIngredient12}</Text>
                 <Text>{recipe.strMeasure13} {recipe.strIngredient13}</Text>
                 <Text>{recipe.strMeasure14} {recipe.strIngredient14}</Text>
-                <Text>{recipe.strMeasure15} {recipe.strIngredient15}</Text>
+                <Text>{recipe.strMeasure15} {recipe.strIngredient15}</Text> */}
               </View>
               <Text>RECIPE</Text>
               <Text>{recipe.strInstructions}</Text>
-              <DrinkImage source={{ uri: `${recipe.strDrinkThumb}` }}></DrinkImage>
+              <RecipeImage source={{ uri: `${recipe.strDrinkThumb}` }}></RecipeImage>
             </>
           )
         })
       }
-      <Text>Hello, second screen!</Text>
     </RecipeView>
   )
 }
@@ -76,11 +75,21 @@ export default DrinkRecipe
 //STYLED components
 
 export const RecipeView = styled.View`
-  background-color: white;
+  // flex: 1;
+  background-color: orange;
   color: blue;
+  // padding: 10px;
 `
 
 export const DrinkNameRecipe = styled.Text`
 color: black;
 font-size: 20px
-` 
+`
+
+export const RecipeImage = styled.Image`
+  position: relative;
+  align-self: center;
+  width: 300px;
+  height: 300px;
+  margin: 15px 0;
+`
