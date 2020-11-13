@@ -57,17 +57,6 @@ const App = () => {
             drinkImg={cocktail.strDrinkThumb}
           />}
       />
-
-      {/* SCROLLVIEW alternative */}
-
-      {/* <ScrollView> */}
-      {/* {drink.map(cocktail => (
-          <DrinkList
-            key={cocktail.idDrink}
-            {...cocktail}
-          />
-        ))} */}
-      {/* </ScrollView> */}
       {/* <DrinkRecipe
         instructions={recipes.strInstructions}
       /> */}

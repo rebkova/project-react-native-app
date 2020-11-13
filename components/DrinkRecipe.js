@@ -41,7 +41,7 @@ const DrinkRecipe = () => {
               <DrinkNameRecipe key={recipe.idDrink}>{recipe.strDrink}</DrinkNameRecipe>
 
               <Text>INGREDIENTS</Text>
-              {/* if the value !=null then display otherwise hide */}
+              {/* if the value === null, then hide */}
               <View >
                 <Text>{recipe.strMeasure1} {recipe.strIngredient1}</Text>
                 <Text>{recipe.strMeasure2} {recipe.strIngredient2}</Text>
